@@ -1,0 +1,31 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+
+.container h1{
+    font-size: 50px;
+    margin-top: 30px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.wrapper{
+    width: 95%;
+    margin-top: 30px;
+ 
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+
+}
+
+.card{
+    cursor: pointer;
+ 
+    height: 40%;
+    width: 20%;
+}

@@ -1,0 +1,50 @@
+.container{
+   
+    width: 95%;
+    margin: auto;
+    border: solid 1px;
+    padding: 10px;
+    height: 120vh;
+    position: relative;
+}
+
+.schoolDetail , .StartEnd,.degree,.field,.dis{
+    display: flex;
+    gap: 60px;
+    margin-top: 40px;
+    margin-left: 30px;
+}
+
+
+.container p{
+   font-size: 20px;
+    
+}
+
+.schoolName , .schoolLocation , .startMonth , .startYear{
+    width: 300px;
+}
+
+.degreeDetail,.fieldStudy,.disInput{
+    width: 660px;
+}
+
+
+
+.nextButton{
+    width: 25%;
+    float: right;
+    position: absolute;
+    left: 70%;
+    margin-top: 30px;
+  }
+
+  .nextButton button{
+    width: 100%;
+    height: 50px;
+    background-color: rgb(58,150,240);
+    color: white;
+    border:none;
+    font-size: 25px;
+    cursor: pointer;
+  }

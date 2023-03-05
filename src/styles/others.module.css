@@ -1,0 +1,70 @@
+.container{
+    
+    width: 95%;
+    margin: auto;
+    border: solid 1px;
+    padding: 10px;
+    height: 85vh;
+    position: relative;
+}
+.addSocialLinks{
+    cursor: pointer;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    color: rgb(58,150,240);
+}
+
+.link1{
+  
+    display: flex;
+    gap: 50px;
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+.socialMediaLink1{
+    width: 150px;
+}
+
+.linkSocial1{
+    width: 500px;
+}
+
+
+.addSocialLinks{
+    margin-left: 50px;
+    margin-top: 50px;
+}
+.addSocialLinks li{
+    all: unset;
+    padding-bottom: 10px;
+    font-size: 20px ;
+    margin-top: 10px;
+    margin-left: 6px;
+
+}
+.socialMediaLinks li{
+    all: unset;
+    padding-bottom: 10px;
+    font-size: 20px ;
+    margin-top: 10px;
+    margin-left: 6px;
+}
+
+
+.nextButton{
+    width: 15%; 
+    margin-left: auto;
+
+}
+
+  .nextButton button{
+    width: 100%;
+    height: 50px;
+    background-color: rgb(58,150,240);
+    color: white;
+    border:none;
+    font-size: 25px;
+    cursor: pointer;
+  }

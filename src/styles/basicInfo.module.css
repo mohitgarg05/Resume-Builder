@@ -1,0 +1,96 @@
+.container{
+   
+    width: 95%;
+    margin: auto;
+    border: solid 1px;
+    padding: 30px;
+    height: 71vh;
+    position: relative;
+}
+
+
+.name{
+    display: flex;
+    gap: 60px;
+}
+
+.firstName , .lastName,.profession,.phone,.email{
+    border: solid;
+    width: 400px;
+}
+
+
+.field{
+    margin-top: 30px;
+}
+
+
+.address{
+    margin-top: 30px;
+    display: flex;
+    gap: 50px;
+}
+
+.contact{
+    display: flex;
+    gap: 60px;
+    margin-top: 30px;
+}
+
+.addSocialLinks{
+    cursor: pointer;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    color: rgb(58,150,240);
+}
+
+.addSocialLinks li{
+    all: unset;
+    padding-bottom: 10px;
+    font-size: 20px ;
+    margin-top: 10px;
+    margin-left: 6px;
+}
+.socialMediaLinks li{
+    all: unset;
+    padding-bottom: 10px;
+    font-size: 20px ;
+    margin-top: 10px;
+    margin-left: 6px;
+}
+
+.link1{
+    margin-top: 20px;
+    display: flex;
+    gap: 60px;
+    align-items: center;
+}
+
+.linkSocial1{
+    width: 500px;
+}
+
+
+.socialMediaLink1{
+    width: 200px;
+  
+}
+
+.nextButton{
+    width: 25%;
+    float: right;
+    position: absolute;
+    left: 70%;
+    margin-top: 50px;
+  }
+
+  .nextButton button{
+    width: 100%;
+    height: 50px;
+    background-color: rgb(58,150,240);
+    color: white;
+    border:none;
+    font-size: 25px;
+    cursor: pointer;
+  }

@@ -2,6 +2,9 @@ import React,{useEffect,useState} from 'react'
 import style from '../../styles/sampleResume.module.css';
 import {db}  from '../../../firebaseConfig.js';
 import {updateDoc, doc, getDoc} from 'firebase/firestore';
+
+import jsPDF from 'jspdf';
+
 const sampleResume = () => {
 
     const [Info, setInfo] = useState()
@@ -23,6 +26,15 @@ const sampleResume = () => {
         setInfo(final);
     }
 
+    const handleDownload = () => {
+      var doc = new jsPDF('portrait','px','a4');
+      doc.html(document.querySelector("#resume"),{
+        callback : function(pdf){
+          pdf.save("Resume.pdf")
+        }
+      })
+
+    };
 
 
 
@@ -30,8 +42,8 @@ const sampleResume = () => {
 
   return (
 
-<div className={style.container}>
-  <div className={style.header}>
+<div className={style.container} id='resume'>
+  <div className={style.header} >
     <div className={style.fullname}>
       <span className={style.firstname}>{Info?.FirstName}</span> 
       <span className={style.lastname}>{Info?.LastName}</span>
@@ -130,6 +142,8 @@ const sampleResume = () => {
        </div>
      </div>
      </div>
+
+     <button onClick={handleDownload}> Download </button>
   </div>
 
   )

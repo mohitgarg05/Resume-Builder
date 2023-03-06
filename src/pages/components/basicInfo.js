@@ -43,6 +43,7 @@ const basicInfo = (props) => {
   const getData = 
     async() => {
       const token = localStorage.getItem('accessToken');
+      setId(token);
       const docRef = doc(db, "users",token);
       const docSnap = await getDoc(docRef);
       console.log(docSnap.data())
@@ -75,7 +76,7 @@ const basicInfo = (props) => {
       objeData.link = SocialLink
     }
 
-    const cityRef = doc(db, 'users', props.userId);
+    const cityRef = doc(db, 'users', Id);
    await updateDoc(cityRef, objeData);
 
     props.handle();

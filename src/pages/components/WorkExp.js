@@ -4,14 +4,15 @@ import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
-import {auth , provider, db}  from '../../../firebaseConfig.js';
-import {getFirestore,setDoc,updateDoc, doc, getDoc} from 'firebase/firestore';
+import  {db}  from '../../../firebaseConfig.js';
+import {updateDoc, doc, getDoc} from 'firebase/firestore';
 
 const WorkExp = (props) => {
 
   const [numsDiv, setnumsDiv] = useState(1)
   const [formData, setFormData] = useState([{JobTittle: "", JobPurpose: "", JobLocation: "", StartMonth: "", StartYear: "", EndMonth:"", EndYear:"", JobDescription:"" }]);
   const [Id, setId] = useState()
+
   const Months = [
     {
       value: 'January',
@@ -64,12 +65,26 @@ const WorkExp = (props) => {
   ];
 
 
-  useEffect(() => {
-    const token = localStorage.getItem('accessToken');
-    setId(token);
-        
+useEffect(() => {
+   
+        getData();
   }, [])
 
+
+  const getData = 
+    async() => {
+      const token = localStorage.getItem('accessToken');
+      setId(token);
+      const docRef = doc(db, "users",token);
+      const docSnap = await getDoc(docRef);
+      console.log(docSnap.data().WorkExperience)
+      const final = docSnap.data().WorkExperience;
+      if(final){
+        setnumsDiv(final.length);
+        setFormData([...final])
+      }
+     
+  }
 
 
   const handleSubmit = async(e)=>{

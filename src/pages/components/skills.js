@@ -3,8 +3,8 @@ import style from '../../styles/skills.module.css';
 import TextField from '@mui/material/TextField';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
-import {auth , provider, db}  from '../../../firebaseConfig.js';
-import {getFirestore,setDoc,updateDoc, doc, getDoc} from 'firebase/firestore';
+import {db}  from '../../../firebaseConfig.js';
+import {updateDoc, doc, getDoc} from 'firebase/firestore';
 const skills = (props) => {
 
   const [inputFields, setinputFields] = useState([''])
@@ -43,10 +43,28 @@ const skills = (props) => {
 
   
   useEffect(() => {
-    const token = localStorage.getItem('accessToken');
-    setId(token);
+    
+
+    getData();
         
   }, [])
+
+
+  const getData = 
+  async() => {
+    const token = localStorage.getItem('accessToken');
+    setId(token);
+    const docRef = doc(db, "users",token);
+    const docSnap = await getDoc(docRef);
+    console.log(docSnap.data().Skills)
+    const final = docSnap.data().Skills;
+
+    if(final){
+      setinputFields([...final])
+    }
+    
+}
+
 
 
 

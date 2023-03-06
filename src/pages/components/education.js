@@ -83,11 +83,35 @@ const education = (props) => {
 
   }
   
-  useEffect(() => {
-    const token = localStorage.getItem('accessToken');
-    setId(token);
-        
+useEffect(() => {
+   
+        getData();
   }, [])
+
+
+  const getData = 
+    async() => {
+      const token = localStorage.getItem('accessToken');
+      setId(token);
+      const docRef = doc(db, "users",token);
+      const docSnap = await getDoc(docRef);
+      console.log(docSnap.data())
+      const final = docSnap.data()
+      if(final){
+        setInput({
+            schoolName:final.SchoolName,
+            schoolLocation:final.SchoolLoc,
+            startMonth:final.StartMonth,
+            startYear:final.StartYear,
+            endMonth:final.EndMonth,
+            endYear:final.EndYear,
+            degree:final.Degree,
+            field:final.FieldStudy,
+            discription:final.Discription
+        })
+      }
+    
+  }
 
   
 

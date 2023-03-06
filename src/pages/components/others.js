@@ -6,7 +6,7 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import DeleteIcon from '@mui/icons-material/Delete';
 import style from '../../styles/others.module.css';
 import {auth , provider, db}  from '../../../firebaseConfig.js';
-import {getFirestore,setDoc,updateDoc, doc, getDoc} from 'firebase/firestore';
+import {doc,updateDoc, getDoc} from 'firebase/firestore';
 
 
 const others = (props) => {
@@ -46,10 +46,25 @@ const others = (props) => {
 
   
   useEffect(() => {
-    const token = localStorage.getItem('accessToken');
-    setId(token);
-        
-  }, [])
+   
+    getData();
+}, [])
+
+
+const getData = 
+async() => {
+  const token = localStorage.getItem('accessToken');
+  setId(token);
+  const docRef = doc(db, "users",token);
+  const docSnap = await getDoc(docRef);
+  console.log(docSnap.data().OtherLinks)
+  const final = docSnap.data().OtherLinks;
+  if(final) {
+    setnumDiv(final.length)
+    setFormData([...final])
+  }
+  
+}
 
 
   const addMore = ()=>{
@@ -74,7 +89,7 @@ const others = (props) => {
     
 
     const cityRef = doc(db, 'users', Id);
-    // await updateDoc(cityRef, objeData);
+     await updateDoc(cityRef, objeData);
 
     window.location.href = "./components/selectTemplate"
 
